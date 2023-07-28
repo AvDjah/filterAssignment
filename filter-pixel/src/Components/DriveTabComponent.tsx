@@ -10,9 +10,6 @@ type Photos = {
 }
 
 
-type PhotoKeys = {
-    Key: string
-}
 
 
 export const DrivePage = () => {
@@ -48,7 +45,7 @@ export const DrivePage = () => {
 
 
 
-    const [isLoading, setIsLoading] = useState(false)
+    // const [isLoading, setIsLoading] = useState(false)
 
 
     return (<>

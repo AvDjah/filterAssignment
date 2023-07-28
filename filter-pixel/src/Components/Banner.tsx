@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import { LoginContext } from "../App.tsx"
 import Logo from "../assets/filterpixelLogo.png"
-import { UserInfo } from "../Pages/LoginPage.tsx"
+import { UserInfo} from "./UserInfo.tsx";
 import {useNavigate} from "react-router-dom";
 
 

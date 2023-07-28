@@ -53,8 +53,8 @@ export const PhotosPage = () => {
     return (
         <div className="flex flex-col items-center">
             <div>
-                <span onClick={() => handleTabChange(0)} className={(activeTab === 0 ? "bg-white text-black " : "text-white ") + " p-4 text-xl w-tab inline-block rounded-t-full text-center cursor-pointer border-b-2 border-white"}  >S3</span>
-                <span onClick={() => handleTabChange(1)} className={(activeTab === 1 ? "bg-white text-black " : "text-white ") + " p-4 text-xl w-tab inline-block rounded-t-full text-center cursor-pointer border-b-2 border-white"}  >Google Drive</span></div>
+                <span onClick={() => handleTabChange(0)} className={(activeTab === 0 ? "bg-white text-black animate-riseup " : "text-white animate-dull ") + "transition-all ease-in-out p-4 text-xl w-tab inline-block rounded-t-full text-center cursor-pointer border-b-2 border-white"}  >S3</span>
+                <span onClick={() => handleTabChange(1)} className={(activeTab === 1 ? "bg-white text-black animate-riseup " : "text-white animate-dull ") + " p-4 text-xl w-tab inline-block rounded-t-full text-center cursor-pointer border-b-2 border-white"}  >Google Drive</span></div>
             <div className="border-2 p-6 m-2" style={{ width: "1000px" }} >
                 <PaginatedPhotos selectedTab={activeTab} />
             </div>

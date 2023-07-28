@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react'
+import { createContext, useState } from 'react'
 import './App.css'
 import { LoginPage } from './Pages/LoginPage.tsx'
 import { PhotosPage } from './Pages/PhotosPage.tsx'
@@ -50,7 +50,6 @@ export const LoginContext = createContext<LoginState>({
 
 function App() {
 
-  const loginContext = useContext(LoginContext)
   const [loginInfo, setLoginInfo] = useState<LoginInfo | null>(null)
 
   return (
