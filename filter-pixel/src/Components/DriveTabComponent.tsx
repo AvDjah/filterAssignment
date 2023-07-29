@@ -21,7 +21,7 @@ export const DrivePage = () => {
 
     const loadMore = () => {
         setOffset(offset + 10)
-        console.log(offset)
+        // console.log(offset)
     }
 
 
@@ -31,14 +31,14 @@ export const DrivePage = () => {
         console.log(url)
         fetch(url).then(async (res) => {
             const jsonOutput: Photos[] = (await res.json()).photos
-            console.log(jsonOutput)
+            // console.log(jsonOutput)
             setPhotos(photos?.concat(jsonOutput))
         }).catch(e => console.log(e))
         return
     }
 
     useEffect(() => {
-        console.log("Fetched:   ")
+        // console.log("Fetched:   ")
         // setIsLoading(true)
         fetchPhotos()
     }, [offset])

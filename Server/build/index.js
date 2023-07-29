@@ -18,13 +18,6 @@ const port = 3000;
 app.get('/', (req, res) => {
     res.send('Hello World!');
 });
-app.get("/login", (req, res) => {
-    res.send("Login");
-});
-app.post("/login", (req, res) => {
-    console.log(req.body);
-    res.sendStatus(200);
-});
 app.use(userRoutes_1.default);
 app.use(dataRoutes_1.default);
 app.listen(port, () => {

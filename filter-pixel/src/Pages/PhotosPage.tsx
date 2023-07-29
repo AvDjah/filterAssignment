@@ -36,7 +36,7 @@ export const PhotosPage = () => {
         if(loginContext.info === null || loginContext.info?.accessToken === null){
             navigate("/login")
         } else {
-            console.log("LoggedIn: ", loginContext)
+            // console.log("LoggedIn: ", loginContext)
         }
     })
 
@@ -45,10 +45,6 @@ export const PhotosPage = () => {
     const handleTabChange = (val: number) => {
         setActiveTab(val)
     }
-
-
-    var arr: string[] = ["@3", "#1", "!3", "323", "@31", "@3", "#1", "!3", "323", "@31", "@3", "#1", "!3", "323", "@31", "@3", "#1", "!3", "323", "@31"]
-    arr = arr.concat(arr)
 
     return (
         <div className="flex flex-col items-center">

@@ -27,7 +27,7 @@ export const S3Photos = () => {
 
     const fetchKeys = async () => {
         // setOffset(offset + 6)
-        console.log("Starting Request")
+        // console.log("Starting Request")
 
         const data = await fetch("http://localhost:3000/data?" + new URLSearchParams({
             offset: offset.toString(),
@@ -35,12 +35,12 @@ export const S3Photos = () => {
         }))
         const jsonData: string[] = await data.json()
 
-        console.log("Received Data: ", jsonData)
+        // console.log("Received Data: ", jsonData)
 
         const transformed = jsonData.map((val,index) => {
             return encodeURIComponent(val)
         })
-        console.log("transformed: ", transformed)
+        // console.log("transformed: ", transformed)
         setPhotos(transformed)
     }
 

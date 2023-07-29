@@ -9,10 +9,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.signupHandler = exports.getUserHandler = void 0;
+exports.signupHandler = exports.getUserService = void 0;
 const client_1 = require("@prisma/client");
 const prisma = new client_1.PrismaClient();
-const getUserHandler = (email) => __awaiter(void 0, void 0, void 0, function* () {
+const getUserService = (email) => __awaiter(void 0, void 0, void 0, function* () {
     const user = yield prisma.user.findFirst({
         where: {
             email: email
@@ -21,7 +21,7 @@ const getUserHandler = (email) => __awaiter(void 0, void 0, void 0, function* ()
     console.log(user);
     return user;
 });
-exports.getUserHandler = getUserHandler;
+exports.getUserService = getUserService;
 const signupHandler = (user) => __awaiter(void 0, void 0, void 0, function* () {
     const userCreate = yield prisma.user.create({
         data: {

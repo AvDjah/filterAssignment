@@ -21,15 +21,6 @@ app.get('/', (req, res) => {
     res.send('Hello World!');
 });
 
-app.get("/login", (req: Request, res: Response) => {
-    res.send("Login")
-})
-
-app.post("/login", (req: Request, res: Response) => {
-    console.log(req.body)
-    res.sendStatus(200)
-})
-
 app.use(userRoutes)
 app.use(dataRoutes)
 

@@ -7,7 +7,7 @@ type SignUpBody = {
     password: string,
     picture: string
 }
-export const getUserHandler = async (email: string | Prisma.StringFilter<"User"> | undefined) => {
+export const getUserService = async (email: string | Prisma.StringFilter<"User"> | undefined) => {
     const user = await prisma.user.findFirst({
         where: {
             email: email

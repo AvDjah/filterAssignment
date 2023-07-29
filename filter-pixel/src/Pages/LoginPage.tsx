@@ -20,7 +20,7 @@ export const LoginBox = () => {
     const login = useGoogleLogin({
         onSuccess: response => {
 
-            console.log(response)
+            // console.log(response)
 
             if (loginContext.setToken !== null) {
                 loginContext.setToken({
@@ -36,19 +36,19 @@ export const LoginBox = () => {
         if(loginContext.info?.accessToken !== null && loginContext.info !== null){
             navigate("/")
         } else {
-            console.log("No Login")
+            // console.log("No Login")
         }
     }, [loginContext.info, loginContext.info?.accessToken, navigate]);
 
 
 
     const handlePlainLogin = () => {
-        fetch(`http://localhost:3000/user?` + new URLSearchParams({
+        fetch(`http://localhost:3000/login?` + new URLSearchParams({
             email: username,
             password : Password
         })).then(async (res) => {
             const resultJson = await res.json()
-            console.log("getUser: ", resultJson)
+            // console.log("getUser: ", resultJson)
             if (resultJson.result === "Fail") {
                 alert("Wrong ID or Password")
                 return
@@ -71,8 +71,8 @@ export const LoginBox = () => {
                     span className='mx-2' onClick={() => login()} >Login with google</span>
             </button>
             <div className='flex flex-row items-center' ><hr className='w-24' /><span className='px-2' >OR</span><hr className='w-24' /></div>
-            <input value={username} onChange={(e) => setUsername(e.target.value)} style={{ width: "321px" }} className='rounded-lg p-2 text-black  outline-none border-2 focus:border-blue-400 border-slate-300 ' placeholder='Username' ></input>
-            <input value={Password} onChange={(e) => setPassword(e.target.value)} style={{ width: "321px" }} className='rounded-lg p-2 text-black  outline-none border-2 focus:border-blue-400 border-slate-300 ' placeholder='Password' ></input>
+            <input  type="email" value={username} onChange={(e) => setUsername(e.target.value)} style={{ width: "321px" }} className='rounded-lg p-2 text-black  outline-none text-lg  border-2 focus:border-blue-400 border-slate-300 ' placeholder='Username' ></input>
+            <input type="password" value={Password} onChange={(e) => setPassword(e.target.value)} style={{ width: "321px" }} className='rounded-lg p-2 text-black  outline-none border-2 focus:border-blue-400 border-slate-300 ' placeholder='Password' ></input>
             <button onClick={handlePlainLogin} className='font-semibold w-24 bg-blue text-black p-2 rounded-lg bg-cya hover:bg-cyan-500 active:opacity-90  ' >Submit</button>
         </div>
     )
@@ -82,9 +82,7 @@ export const LoginBox = () => {
 export const LoginPage = () => {
 
     return (
-        <> {
-            console.log(import.meta.env)
-        }
+        <>
             <div className='md:h-60' ></div>
             <LoginBox></LoginBox>
         </>
