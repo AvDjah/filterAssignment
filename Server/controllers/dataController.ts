@@ -12,9 +12,18 @@ const region = "ap-south-1"
 
 
 export const getDriveList = (req : Request, res : Response) => {
-    driveService().then(result => {
+
+    const params = req.query
+    const limit = params.limit
+
+
+    driveService().then((result : string[]) => {
         console.log(result)
-        res.send(result)
+        const arr : string[] = []
+        for(let i=0;i < Math.min(Number(limit),result.length);i++){
+            arr.push(result[i])
+        }
+        res.send(arr)
     }).catch(e => {
         console.log(e)
         res.send(500)

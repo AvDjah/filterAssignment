@@ -19,7 +19,7 @@ export const DrivePage = () => {
 
     const fetchPhotos = () => {
 
-        const url = `http://localhost:3000/drive`
+        const url = `http://localhost:3000/drive?` + new URLSearchParams({limit : (photos.length + 6).toString()})
         console.log(url)
         fetch(url).then(async (res) => {
             const jsonOutput: string[] = (await res.json())
@@ -37,13 +37,13 @@ export const DrivePage = () => {
 
 
     return (<>
-        {/*<InfiniteScroll dataLength={photos.length} next={fetchPhotos} hasMore={photos.length < } loader={<h4>Loading</h4>} >*/}
+        <InfiniteScroll dataLength={photos.length} next={fetchPhotos} hasMore={photos.length < 14 } loader={<h4>Loading</h4>} >
             <div className="grid grid-cols-3 gap-4 " >
                 {photos?.map((val, index) => {
-                    return <div className="h-72" key={index} ><img src={val} className="object-cover h-72 w-full transition-all ease-in-out hover:-translate-y-1" ></img></div>
+                    return <div className="h-96" key={index} ><img src={val} className="object-cover h-96 w-full transition-all ease-in-out hover:-translate-y-1" ></img></div>
                 })}
             </div>
-        {/*</InfiniteScroll >*/}
+        </InfiniteScroll >
     </>
     )
 

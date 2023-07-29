@@ -14,9 +14,15 @@ const client_s3_1 = require("@aws-sdk/client-s3");
 const dataService_1 = require("../services/dataService");
 const region = "ap-south-1";
 const getDriveList = (req, res) => {
-    (0, dataService_1.driveService)().then(result => {
+    const params = req.query;
+    const limit = params.limit;
+    (0, dataService_1.driveService)().then((result) => {
         console.log(result);
-        res.send(result);
+        const arr = [];
+        for (let i = 0; i < Math.min(Number(limit), result.length); i++) {
+            arr.push(result[i]);
+        }
+        res.send(arr);
     }).catch(e => {
         console.log(e);
         res.send(500);

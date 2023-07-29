@@ -18,7 +18,7 @@ export const driveService = () => {
     conf.orderBy = "createdTime";
     conf.q = `'${folderId}' in parents`;
 
-    return new Promise((resolve,reject) => {
+    return new Promise<string[]>((resolve,reject) => {
         drive.files.list(conf, function (error: any, response: { data: { files: any[]; }; }) {
             if (error) {
                 console.log(error)

@@ -35,6 +35,7 @@
  > - Maintained the login state throughout the app using useContext() hook in react.
  - <input type="checkbox" checked /> Added Infinite Scroll on the main image dashboard.
  > - Made using the react-infinite-scroll library.
+ > - Here First 6 images are fetched, and after every scroll the next six images are fetched. Can change this any number to the creators liking.
  - <input type="checkbox" checked /> Added S3 bucket functionality in the backend to fetch image sources.
  > - To solve this 
  > > - In the backend, made a call to the bucket to retrieve the image keys.
@@ -45,10 +46,10 @@
 > - In the backend, separated the routes, handlers and middlewares.
 > - More Scope for improvement.
 - <input type="checkbox" checked /> Fully Replicated thmade persistant.
-- Added Drive Functionality Too
+- Added Drive Functionality Too. With Pagination.
 
 # To Do Tasks
-- Add Pagination to Drive Component
+- Add a better Loading Animation
 
 
 # Scope for Improvement
