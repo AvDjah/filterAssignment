@@ -30,3 +30,24 @@ export const signupHandler = async (user: SignUpBody) => {
     console.log(userCreate)
 
 }
+
+
+export const userProfileService = async (token : string) => {
+    const user = await prisma.user.findFirst({
+        where : {
+            email : token
+        }
+    })
+    if(user === null ){
+        return { result : "Fail" }
+    } else {
+        return {
+            result : "Success",
+            name : user.name,
+            email : user.email,
+            id : user.id,
+            picture : user.picture
+        }
+    }
+
+}

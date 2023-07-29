@@ -19,11 +19,6 @@ export const DrivePage = () => {
     const [photos, setPhotos] = useState<Photos[]>([])
 
 
-    const loadMore = () => {
-        setOffset(offset + 10)
-        // console.log(offset)
-    }
-
 
     const fetchPhotos = () => {
 
@@ -38,14 +33,9 @@ export const DrivePage = () => {
     }
 
     useEffect(() => {
-        // console.log("Fetched:   ")
-        // setIsLoading(true)
         fetchPhotos()
     }, [offset])
 
-
-
-    // const [isLoading, setIsLoading] = useState(false)
 
 
     return (<>

@@ -1,7 +1,5 @@
 
-import { LoginContext } from '../App.tsx'
-import {SyntheticEvent, useContext, useState} from 'react'
-import { useNavigate } from 'react-router-dom'
+import {SyntheticEvent, useState} from 'react'
 import {Alert, Snackbar} from "@mui/material";
 
 
@@ -25,7 +23,7 @@ export const SignUpBox = () => {
     const handleClick = () => {
         setOpen(true);
     };
-    const handleClose = (event: SyntheticEvent | Event, reason?: string) => {
+    const handleClose = (_event: SyntheticEvent | Event, reason?: string) => {
         if (reason === 'clickaway') {
             return;
         }
@@ -37,7 +35,7 @@ export const SignUpBox = () => {
     const handleErrorClick = () => {
         setErrorOpen(true);
     };
-    const handleErrorClose = (event: SyntheticEvent | Event, reason?: string) => {
+    const handleErrorClose = (_event: SyntheticEvent | Event, reason?: string) => {
         if (reason === 'clickaway') {
             return;
         }

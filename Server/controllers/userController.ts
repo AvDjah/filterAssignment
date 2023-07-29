@@ -1,5 +1,5 @@
 import { Response, Request } from 'express'
-import {getUserService, signupHandler} from "../services/authServices";
+import {getUserService, signupHandler, userProfileService} from "../services/authServices";
 
 
 type UserResponse = {
@@ -44,8 +44,6 @@ export const getUser = (req: Request, res: Response) => {
                 })
                 return
             }
-
-
             const response: UserResponse = {
                 result: "Success",
                 name: user.name,
@@ -63,6 +61,18 @@ export const getUser = (req: Request, res: Response) => {
         console.log(err)
         res.sendStatus(500)
     })
+}
+
+
+export const getUserProfile = async (req : Request, res : Response)=>{
+    const query = req.query
+    const token = query.email
+    if(token !== undefined){
+        const profile = await userProfileService(token.toString())
+        res.send(profile)
+    } else {
+        res.sendStatus(409)
+    }
 
 }
 

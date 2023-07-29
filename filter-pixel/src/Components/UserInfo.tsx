@@ -15,13 +15,15 @@ interface ProfileJsonResult extends Profile {
 
 export const UserInfo = (props: { access_token: string, loginType: "Google" | "Plain" }) => {
 
+    const [profile, setProfile] = useState<Profile>()
     const loginContext = useContext(LoginContext)
 
+    console.log(profile)
 
     useEffect(() => {
         if (props.loginType === "Plain") {
             console.log("Plain Banner")
-            fetch(`http://localhost:3000/login?` + new URLSearchParams({
+            fetch(`http://localhost:3000/getProfile?` + new URLSearchParams({
                 email: props.access_token
             })).then(async (res) => {
                 const resultJson: ProfileJsonResult = await res.json()
@@ -57,9 +59,8 @@ export const UserInfo = (props: { access_token: string, loginType: "Google" | "P
                 console.log(err)
             })
         }
-    }, [])
+    }, [props.access_token, props.loginType])
 
-    const [profile, setProfile] = useState<Profile>()
 
     const handleLogout = () => {
         if (loginContext.setToken !== null) {

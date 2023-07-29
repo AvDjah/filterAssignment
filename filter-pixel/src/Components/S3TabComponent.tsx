@@ -2,32 +2,14 @@ import { useState, useEffect } from "react"
 import InfiniteScroll from "react-infinite-scroll-component"
 
 
-
-type Photos = {
-    description?: string,
-    id: number,
-    title?: string,
-    url: string
-}
-
-
-type PhotoKeys = {
-    Key: string
-}
-
 export const S3Photos = () => {
 
     const amazonBase = "https://testbucketfp.s3.ap-south-1.amazonaws.com/"
 
-
-    const [offset, setOffset] = useState(0)
-    const [limit, setLimit] = useState(9)
     const [photos, setPhotos] = useState<string[]>([])
 
-
+    const offset = 0
     const fetchKeys = async () => {
-        // setOffset(offset + 6)
-        // console.log("Starting Request")
 
         const data = await fetch("http://localhost:3000/data?" + new URLSearchParams({
             offset: offset.toString(),
@@ -35,12 +17,11 @@ export const S3Photos = () => {
         }))
         const jsonData: string[] = await data.json()
 
-        // console.log("Received Data: ", jsonData)
 
-        const transformed = jsonData.map((val,index) => {
+        const transformed = jsonData.map((val) => {
             return encodeURIComponent(val)
         })
-        // console.log("transformed: ", transformed)
+
         setPhotos(transformed)
     }
 
