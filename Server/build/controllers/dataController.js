@@ -9,9 +9,20 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getIndividualItemInfo = exports.getDataList = exports.getItemListFromBucket = exports.s3Client = void 0;
+exports.getIndividualItemInfo = exports.getDataList = exports.getItemListFromBucket = exports.s3Client = exports.getDriveList = void 0;
 const client_s3_1 = require("@aws-sdk/client-s3");
+const dataService_1 = require("../services/dataService");
 const region = "ap-south-1";
+const getDriveList = (req, res) => {
+    (0, dataService_1.driveService)().then(result => {
+        console.log(result);
+        res.send(result);
+    }).catch(e => {
+        console.log(e);
+        res.send(500);
+    });
+};
+exports.getDriveList = getDriveList;
 // Initializing S3 Client
 exports.s3Client = new client_s3_1.S3Client({
     region: region,

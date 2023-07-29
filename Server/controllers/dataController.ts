@@ -1,5 +1,6 @@
 import {Request, Response} from "express";
 import {GetObjectCommand, ListObjectsCommand, S3Client} from "@aws-sdk/client-s3";
+import {driveService} from "../services/dataService";
 
 type DataRequest = {
     offset: number
@@ -8,6 +9,18 @@ type DataRequest = {
 
 
 const region = "ap-south-1"
+
+
+export const getDriveList = (req : Request, res : Response) => {
+    driveService().then(result => {
+        console.log(result)
+        res.send(result)
+    }).catch(e => {
+        console.log(e)
+        res.send(500)
+    })
+}
+
 
 
 // Initializing S3 Client

@@ -45,10 +45,10 @@
 > - In the backend, separated the routes, handlers and middlewares.
 > - More Scope for improvement.
 - <input type="checkbox" checked /> Fully Replicated thmade persistant.
-- 
+- Added Drive Functionality Too
 
 # To Do Tasks
-- Add Drive Funcitonality
+- Add Pagination to Drive Component
 
 
 # Scope for Improvement
