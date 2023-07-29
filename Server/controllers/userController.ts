@@ -20,10 +20,10 @@ export const signUp = (req: Request, res: Response) => {
     // Make request to DB to store User
     signupHandler(reqBody).then(() => {
         console.log("User Created")
-        res.sendStatus(200)
+        res.send({ result : "Success" })
     }).catch(err => {
         console.log(err)
-        res.sendStatus(500)
+        res.send({ result : "Failure"})
     })
 }
 

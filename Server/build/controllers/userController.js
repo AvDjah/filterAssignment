@@ -9,10 +9,10 @@ const signUp = (req, res) => {
     // Make request to DB to store User
     (0, authServices_1.signupHandler)(reqBody).then(() => {
         console.log("User Created");
-        res.sendStatus(200);
+        res.send({ result: "Success" });
     }).catch(err => {
         console.log(err);
-        res.sendStatus(500);
+        res.send({ result: "Failure" });
     });
 };
 exports.signUp = signUp;
