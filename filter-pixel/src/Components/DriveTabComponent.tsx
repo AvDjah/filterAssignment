@@ -40,9 +40,9 @@ export const DrivePage = () => {
 
     return (<>
         <InfiniteScroll dataLength={photos.length} next={fetchPhotos} hasMore={photos.length < 20} loader={<h4>Loading</h4>} >
-            <div className="grid grid-cols-3 gap-8" >
+            <div className="flex flex-row flex-wrap gap-2" >
                 {photos?.map((val, index) => {
-                    return <div key={index} ><img src={val.url} className="transition-all ease-in-out hover:-translate-y-1" ></img></div>
+                    return <div className="flex-grow h-72" key={index} ><img src={val.url} className="object-fill w-full h-72 transition-all ease-in-out hover:-translate-y-1" ></img></div>
                 })}
             </div>
         </InfiniteScroll >
