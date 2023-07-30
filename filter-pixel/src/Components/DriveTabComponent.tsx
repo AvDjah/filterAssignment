@@ -24,7 +24,7 @@ export const DrivePage = () => {
         fetch(url).then(async (res) => {
             const jsonOutput: string[] = (await res.json())
             // console.log(jsonOutput)
-            setPhotos(photos?.concat(jsonOutput))
+            setPhotos(jsonOutput)
             console.log(jsonOutput)
         }).catch(e => console.log(e))
         return

@@ -22,7 +22,7 @@ export const S3Photos = () => {
             return encodeURIComponent(val)
         })
 
-        setPhotos(transformed)
+        setPhotos([...transformed])
     }
 
     useEffect(()=> {
@@ -34,10 +34,11 @@ export const S3Photos = () => {
 
     return (
         <div>
-            <InfiniteScroll dataLength={photos.length} hasMore={photos.length <= 14} next={fetchKeys} loader={<h4></h4>}  >
+            <InfiniteScroll dataLength={photos.length} hasMore={photos.length < 14} next={fetchKeys} loader={<h4></h4>}  >
                 <div  className="grid grid-cols-3 gap-8 justify-items-center" >
                     {photos.map((val, index) => {
                         const photoUrl = amazonBase + val
+                        console.log("render: ",index)
                         return <div className="items-center" key={index} ><img  className="h-full border-4 border-gray-800 object-cover wed mx-auto items-center transition-all ease-in-out hover:-translate-y-1" src={photoUrl} /></div>
                     })}
                 </div>
